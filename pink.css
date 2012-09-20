@@ -1,0 +1,35 @@
+body {
+	background-image: url('bg.png');
+	background-repeat: repeat;
+}
+#container {
+	margin-left: auto;
+	margin-right: auto;
+	width: 80%;
+}
+
+table {
+	width: 100%;
+	background-color: white;
+	border-radius: 10px;
+	border-collapse: collapse;
+}
+
+td {
+	padding: 5px;
+}
+
+td.artist {
+	white-space: nowrap;
+}
+
+#audionp>p {
+	border-radius: 5px;
+	background-color: white;
+	padding: 5px;
+	font-size: 22px;
+}
+#audionp>p,#audionp>audio {
+	display: inline-block;
+	vertical-align: middle;
+}

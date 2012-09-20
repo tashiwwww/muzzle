@@ -1,6 +1,4 @@
 <?php
-$folder = "music";
-
-
+define("MUSIC_ROOT","music"); //define root directory where music is stored.
 ?>
 
