@@ -39,11 +39,6 @@ function fromsjis($str) {
 	return $str;
 }
 
-function tosjis($str) {
-	$str = iconv('utf-8','shift-jis',$str);
-	return $str;
-}
-
 function print_table($arr) {
 	$html = "<table>";
 	$html .= "<tr>";
@@ -52,10 +47,13 @@ function print_table($arr) {
 	$html .= "</tr>";
 	foreach($arr AS $song) {
 		$tags = explode("/",$song);
-		$artist = fromsjis($tags[1]);	
-		$album = fromsjis($tags[2]);
-		$file = fromsjis($tags[3]);
-		$title = fromsjis(substr($tags[3],2,-4));	
+		if(substr(PHP_OS,0,3) == 'WIN') {
+			$tags = array_map(fromsjis,$tags);
+		}
+		$artist = $tags[1];	
+		$album = $tags[2];
+		$file = $tags[3];
+		$title = substr($tags[3],2,-4);	
 		$url = MUSIC_ROOT . '/' . $artist .'/'. $album .'/'. $file;	
 
 
