@@ -23,7 +23,7 @@ td.artist {
 	white-space: nowrap;
 }
 
-#audionp>p {
+p#np {
 	border-radius: 5px;
 	background-color: white;
 	padding: 5px;
@@ -32,4 +32,81 @@ td.artist {
 #audionp>p,#audionp>audio {
 	display: inline-block;
 	vertical-align: middle;
+}
+#buttons {
+	display: inline-block;
+}
+#player>#buttons>div {
+	width: 100px;
+	height: 100px;
+	background-image: url('controls.png');
+	background-repeat: no-repeat;
+	display: inline-block;
+	cursor: pointer;
+}
+#play {
+	background-position: 0px 0px;
+}
+#pause {
+	background-position: -100px 0px;
+}
+.loopoff {
+	background-position: -300px;
+}
+.loopon {
+	background-position: -400px;
+}
+#stop {
+	background-position: -200px;
+}
+
+#volumecontainer {
+	width: 150px;
+	display: inline-block;
+}
+
+#seekercontainer {
+	display: block;
+	width: 100%;
+	margin: 20px 0;
+}
+#seeker{
+	-webkit-appearance:none;
+	-moz-apperance:none;
+	width: 100%;
+	height:9px;
+	border: 4px solid white;
+	border-radius: 8px;
+	background-color: black;
+	cursor: pointer;
+}
+#volume {
+	display: block;
+	margin-bottom: 25%;
+	-webkit-appearance:none;
+	-moz-apperance:none;
+	width:100%;
+	height:9px;
+	border: 4px solid white;
+	border-radius: 8px;
+	background-color: black;
+	cursor: pointer;
+}
+#volume::-webkit-slider-thumb,#seeker::-webkit-slider-thumb {
+	-webkit-appearance:none;
+	-moz-appearance:none;
+	width:15px;
+	height:25px;
+	border: 3px solid black;
+	border-radius:10px;
+	background-color: white;
+}
+
+#lyrics {
+	padding: 15px;
+	white-space: pre;
+}
+#lyricscontainer {
+	background-color: white;
+	border-radius: 15px;
 }

@@ -1,4 +1,5 @@
 <?php
+
 function rscan($dir) {
 	$path = $dir;
 	$files = array();
@@ -38,7 +39,11 @@ function fromsjis($str) {
 	$str = iconv('shift-jis','utf-8',$str);
 	return $str;
 }
-
+function tosjis($str) {
+	//convert string from utf8 to sjis
+	$str = iconv('utf-8','shift-jis',$str);
+	return $str;
+}
 function print_table($arr) {
 	$html = "<table>";
 	$html .= "<tr>";
@@ -47,7 +52,7 @@ function print_table($arr) {
 	$html .= "</tr>";
 	foreach($arr AS $song) {
 		$tags = explode("/",$song);
-		if(substr(PHP_OS,0,3) == 'WIN') {
+		if(OS == 'windows') {
 			$tags = array_map(fromsjis,$tags);
 		}
 		$artist = $tags[1];	
