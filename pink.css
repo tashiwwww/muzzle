@@ -1,5 +1,5 @@
 body {
-	background-image: url('bg.png');
+	background-image: url('picnic.png');
 	background-repeat: repeat;
 }
 #container {
@@ -10,9 +10,9 @@ body {
 
 table {
 	width: 100%;
-	background-color: white;
+	border: 1px solid black;
+	background-color: hsla(339,45%,94%,.7);
 	border-radius: 10px;
-	border-collapse: collapse;
 }
 
 td {
@@ -22,10 +22,16 @@ td {
 td.artist {
 	white-space: nowrap;
 }
-
+p {
+	margin: 0px;
+}
+#npcontainer {
+	vertical-align: top;
+	margin-top: 10px;
+	margin-left: 10px;
+	display: inline-block;
+}
 p#np {
-	border-radius: 5px;
-	background-color: white;
 	padding: 5px;
 	font-size: 22px;
 }
@@ -36,10 +42,16 @@ p#np {
 #buttons {
 	display: inline-block;
 }
+#player {
+	padding: 10px 20px;
+	border-radius: 10px;
+	border: 1px solid black;
+	background-color: hsla(339,45%,94%,.7);
+}
 #player>#buttons>div {
-	width: 100px;
-	height: 100px;
-	background-image: url('controls.png');
+	width: 50px;
+	height: 50px;
+	background-image: url('newcontrols.png');
 	background-repeat: no-repeat;
 	display: inline-block;
 	cursor: pointer;
@@ -47,17 +59,32 @@ p#np {
 #play {
 	background-position: 0px 0px;
 }
+#play:hover {
+	background-position: 0 -50px;
+}
 #pause {
-	background-position: -100px 0px;
+	background-position: -50px 0px;
+}
+#pause:hover {
+	background-position: -50px -50px;
 }
 .loopoff {
-	background-position: -300px;
+	background-position: -150px 0px;
+}
+.loopoff:hover {
+	background-position: -150px -50px;
 }
 .loopon {
-	background-position: -400px;
+	background-position: -200px 0px;
+}
+.loopon:hover {
+	background-position: -200px -50px;
 }
 #stop {
-	background-position: -200px;
+	background-position: -100px 0px;
+}
+#stop:hover {
+	background-position: -100px -50px;
 }
 
 #volumecontainer {
@@ -68,7 +95,7 @@ p#np {
 #seekercontainer {
 	display: block;
 	width: 100%;
-	margin: 20px 0;
+	margin: 5px 0;
 }
 #seeker{
 	-webkit-appearance:none;
@@ -82,7 +109,7 @@ p#np {
 }
 #volume {
 	display: block;
-	margin-bottom: 25%;
+	margin-bottom: 10px;
 	-webkit-appearance:none;
 	-moz-apperance:none;
 	width:100%;
@@ -107,6 +134,8 @@ p#np {
 	white-space: pre;
 }
 #lyricscontainer {
-	background-color: white;
-	border-radius: 15px;
+	margin: 10px 0px;
+	border: 1px solid black;
+	background-color: hsla(339,45%,94%,.7);
+	border-radius: 10px;
 }

@@ -2,6 +2,7 @@
 require("config.php");
 require("muscle.php");
 $src = MUSIC_ROOT . '/' . $artist.'/'.$album.'/'.$title;
+$oggsrc = str_replace('mp3','ogg',$src);
 ?>
 
 <!DOCTYPE HTML>
@@ -14,6 +15,21 @@ $src = MUSIC_ROOT . '/' . $artist.'/'.$album.'/'.$title;
 
 		<script type="text/javascript" src="jquery.js"> </script>
 		<script type="text/javascript">
+function hms(d) {
+	d = Number(d);
+	var h = Math.floor(d / 3600);
+	var m = Math.floor(d % 3600 / 60);
+	var s = Math.floor(d % 3600 % 60);
+	return ((h > 0 ? h + ":" : "") + (m > 0 ? (h > 0 && m < 10 ? "0" : "") + m + ":" : "0:") + (s < 10 ? "0" : "") + s); }
+
+			function movetimer($ele) {
+				var prog = audio.currentTime/audio.duration*100;
+				prog = prog * .97;
+				if(prog > 97) {
+					prog = 97;
+				}
+					$ele.css("margin-left",prog + "%");
+			}
 			$(document).ready(function() {
 				var audio = document.getElementById('audio');
 				var $audio = $('#audio');
@@ -41,13 +57,10 @@ $src = MUSIC_ROOT . '/' . $artist.'/'.$album.'/'.$title;
 				},false);
 				audio.addEventListener("timeupdate",function() {
 					seekbar.value = audio.currentTime;
+					$("#timer").text(hms(audio.currentTime));
+					movetimer($("#timer"));
 				},false);
-				function seekVideo() {
-				  video.currentTime = seekbar.value;
-				}
-				function updateUI() {
-				  seekbar.value = video.currentTime;
-				}
+
 				$("#seeker").change(function() {
 					audio.currentTime = seekbar.value;
 				});	
@@ -100,9 +113,11 @@ $src = MUSIC_ROOT . '/' . $artist.'/'.$album.'/'.$title;
 					<div id="seekercontainer">
 						<input id="seeker" type="range" step="any" value="0">
 					</div>
+					<p id="timer">0:00</p>
 				</div>
 				<audio id="audio">
 				<source src="<?=$src?>" type="audio/mpeg" />
+				<source src="<?=$oggsrc?>" type="audio/ogg" />
 					Your browser does not support the audio element.
 				</audio>
 			</div>
