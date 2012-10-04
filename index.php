@@ -10,7 +10,7 @@ $src = MUSIC_ROOT . '/' . $artist.'/'.$album.'/'.$title;
 	<head>
 		<meta charset="utf-8">
 		<title>tashi!</title>
-		<link rel="stylesheet" type="text/css" href="pink.css" />
+		<link rel="stylesheet" type="text/css" href="main.css" />
 		<script type="text/javascript" src="jquery.js"> </script>
 		<script type="text/javascript">
 function hms(d) {
