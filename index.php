@@ -2,7 +2,6 @@
 require("config.php");
 require("muscle.php");
 $src = MUSIC_ROOT . '/' . $artist.'/'.$album.'/'.$title;
-$oggsrc = str_replace('mp3','ogg',$src);
 ?>
 
 <!DOCTYPE HTML>
@@ -12,7 +11,6 @@ $oggsrc = str_replace('mp3','ogg',$src);
 		<meta charset="utf-8">
 		<title>tashi!</title>
 		<link rel="stylesheet" type="text/css" href="pink.css" />
-
 		<script type="text/javascript" src="jquery.js"> </script>
 		<script type="text/javascript">
 function hms(d) {
@@ -39,6 +37,12 @@ function hms(d) {
 				$('table a').click(function() {
 					var url = $(this).attr('href');
 					var tags = url.split('/');
+					var canmp3 = !!audio.canPlayType && "" != audio.canPlayType('audio/mpeg');
+					var canogg = !!audio.canPlayType && "" != audio.canPlayType('audio/ogg; codecs="vorbis"');
+					if(canmp3) { var ext = '.mp3'; }
+					else if(canogg) { var ext = '.ogg'; }
+					url = url.replace('.mp3',ext);
+					
 		//			console.log(tags);
 					audio.src = url;
 					$("#np").text('NP: ' + tags[1] + ' - ' + tags[3].substring(3,tags[3].search('.mp3')));
@@ -87,11 +91,17 @@ function hms(d) {
 					audio.volume = $(this).val();
 				});
 				$('#stop').click(function() {
-					$("#np").text('Nothing playing.');
-					audio.src = '';
+					stop();
 				});
-
 			});
+		function stop() {
+			var $timer = $("#timer");
+			$("#np").text('Nothing playing.');
+			audio.src = '';
+			$timer.text('0:00');
+			$timer.css('margin-left','0');
+			$("#seeker").val(0);
+		}
 		</script>
 	</head>
 	<body>
