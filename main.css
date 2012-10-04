@@ -1,6 +1,5 @@
 body {
-	background-image: url('picnic.png');
-	background-repeat: repeat;
+	background-color: white;
 }
 #container {
 	margin-left: auto;
