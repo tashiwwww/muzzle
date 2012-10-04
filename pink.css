@@ -51,7 +51,7 @@ p#np {
 #player>#buttons>div {
 	width: 50px;
 	height: 50px;
-	background-image: url('newcontrols.png');
+	background-image: url('controls.png');
 	background-repeat: no-repeat;
 	display: inline-block;
 	cursor: pointer;
